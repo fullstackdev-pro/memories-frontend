@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "https://memories-mern-project-95bk.onrender.com" });
+const API = axios.create({ baseURL: "https://memories-backend-rn8c.onrender.com" });
 
 let token = window.localStorage.getItem("token");
 
