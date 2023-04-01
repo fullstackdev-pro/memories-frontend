@@ -11,16 +11,22 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     padding: '10px 50px',
   },
+  appBarMobile: {
+    borderRadius: 15,
+    margin: '30px 0',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '10px 20px',
+  },
   heading: {
     color: 'rgba(0,183,255, 1)',
     textDecoration: 'none',
   },
-  image: {
-    marginLeft: '15px',
-  },
   toolbar: {
     display: 'flex',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     width: '400px',
   },
   profile: {
@@ -39,5 +45,5 @@ export default makeStyles((theme) => ({
   purple: {
     color: theme.palette.getContrastText(deepPurple[500]),
     backgroundColor: deepPurple[500],
-  },
+  }, 
 }));

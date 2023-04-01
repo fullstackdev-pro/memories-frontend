@@ -14,8 +14,9 @@ export const signIn = (formData, history) => async (dispatch) => {
 export const signUp = (formData, history) => async (dispatch) => {
   try {
     const { data } = await api.signUp(formData);
+    console.log(data)
 
-    dispatch({ type: "AUTH", payload: {token: data.token, profile: data} });
+    dispatch({ type: "AUTH", payload: {token: data.token, profile: JSON.stringify(data.result)} });
 
     history("/");
   } catch (error) {

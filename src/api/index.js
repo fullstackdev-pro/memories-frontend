@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({ baseURL: "https://memories-backend-rn8c.onrender.com" });
+// const API = axios.create({ baseURL: "http://localhost:5000" });
 
 let token = window.localStorage.getItem("token");
 
@@ -22,7 +23,7 @@ export const createPost = (newPost) => API.post("/posts", newPost);
 export const updatePost = (id, updatedPost) =>
   API.patch(`/posts/${id}`, updatedPost);
 export const deletePost = (id) => API.delete(`/posts/${id}`);
-export const likePost = (id, post) => API.patch(`/posts/${id}/likePost`);
+export const likePost = (id) => API.patch(`/posts/${id}/likePost`);
 export const comment = (id, value) => API.post(`/posts/${id}/commentPost`, {value});
 export const signIn = (formData) => API.post("/users/signIn", formData);
 export const signUp = (formData) => API.post("/users/signUp", formData);

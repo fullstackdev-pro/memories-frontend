@@ -16,6 +16,7 @@ import CommentSection from "./CommentSection";
 function PostDetails(props) {
   const classes = useStyles();
   const { post, posts, isLoading } = useSelector((state) => state.posts);
+  console.log(posts)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
@@ -44,7 +45,7 @@ function PostDetails(props) {
     );
   }
 
-  const recommendedPosts = posts.filter(({ _id }) => _id !== post._id);
+  const recommendedPosts = posts.data.filter(({ _id }) => _id !== post._id);
 
   const openPost = (_id) => navigate(`/posts/${_id}`);
 

@@ -35,7 +35,13 @@ function Navbar() {
   }, [location]);
 
   return (
-    <AppBar className={classes.appBar} position="static" color="inherit">
+    <AppBar
+      className={
+        window.innerWidth < 768 ? classes.appBarMobile : classes.appBar
+      }
+      position="static"
+      color="inherit"
+    >
       <div
         className={classes.brandContainer}
         onClick={() => navigate("/")}
@@ -45,9 +51,14 @@ function Navbar() {
           className={classes.image}
           src={memories}
           alt="memories"
-          height="60"
+          height={window.innerWidth < 768 ? "40" : "60"}
         />
-        <img className={classes.image} src={logo} alt="memories" height="60" />
+        <img
+          className={classes.image}
+          src={logo}
+          alt="memories"
+          height={window.innerWidth < 768 ? "40" : "60"}
+        />
       </div>
       <Toolbar className={classes.toolbar}>
         {user ? (

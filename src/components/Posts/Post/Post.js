@@ -40,7 +40,7 @@ function Post({ post, setCurrentId }) {
 
   return (
     <Card className={classes.card} raised elevation={6}>
-      <ButtonBase className={classes.cardAction} onClick={openPost}>
+      <ButtonBase className={classes.cardAction} >
         <CardMedia
           className={classes.media}
           image={post.selectedFile}
@@ -56,7 +56,7 @@ function Post({ post, setCurrentId }) {
           <Button
             style={{ color: "white" }}
             size="small"
-            onClick={() => setCurrentId(post._id)}
+            // onClick={() => setCurrentId(post._id)}
           >
             <MoreHorizIcon fontSize="medium" />
           </Button>
@@ -66,7 +66,7 @@ function Post({ post, setCurrentId }) {
             {post.tags.map((tag) => `#${tag} `)}
           </Typography>
         </div>
-        <Typography className={classes.title} variant="h5" gutterBottom>
+        <Typography className={classes.title} variant="h5" gutterBottom onClick={openPost}>
           {post.title}
         </Typography>
         <CardContent>
