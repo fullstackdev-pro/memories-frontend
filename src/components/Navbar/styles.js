@@ -27,7 +27,12 @@ export default makeStyles((theme) => ({
   toolbar: {
     display: 'flex',
     justifyContent: 'center',
-    width: '400px',
+    width: '80%',
+    marginTop: "1rem"
+  },
+  toolbarContainer:{
+    display: 'flex',
+    justifyContent: 'center'
   },
   profile: {
     display: 'flex',
@@ -41,6 +46,9 @@ export default makeStyles((theme) => ({
   brandContainer: {
     display: 'flex',
     alignItems: 'center',
+  },
+  image: {
+    marginLeft: '1rem'
   },
   purple: {
     color: theme.palette.getContrastText(deepPurple[500]),
