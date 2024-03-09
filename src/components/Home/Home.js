@@ -7,6 +7,7 @@ import {
   AppBar,
   TextField,
   Button,
+  Box,
 } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -60,7 +61,7 @@ function Home() {
 
   return (
     <Grow in>
-      <Container maxWidth="xl">
+      <Box maxWidth="xl" className="classes.homeContainer">
         <Grid
           container
           justifyContent="space-between"
@@ -68,7 +69,7 @@ function Home() {
           spacing={3}
           className={classes.gridContainer}
         >
-          <Grid item xs={12} sm={6} md={9}>
+          <Grid item xs={12} sm={6} md={9} className={classes.postsContainer}>
             <Posts setCurrentId={setCurrentId} />
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
@@ -104,14 +105,14 @@ function Home() {
               </Button>
             </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
-            {(!searchQuery && !tags.length) && (
-            <Paper elevation={6} className={classes.pagination}>
-              <Pagination page={page} />
-            </Paper>
+            {!searchQuery && !tags.length && (
+              <Paper elevation={6} className={classes.pagination}>
+                <Pagination page={page} />
+              </Paper>
             )}
           </Grid>
         </Grid>
-      </Container>
+      </Box>
     </Grow>
   );
 }

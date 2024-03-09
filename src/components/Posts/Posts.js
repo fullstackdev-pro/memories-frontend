@@ -9,18 +9,14 @@ function Posts({ setCurrentId }) {
   const { posts, isLoading } = useSelector((state) => state.posts);
   const classes = useStyles();
 
-  if(!posts.length && !isLoading) return 'No Posts'
- 
+  if (!posts.length && !isLoading) return "No Posts";
+
   return isLoading ? (
     <CircularProgress />
   ) : (
-    <Grid
-      container
-      className={classes.mainContainer}
-      alignItems="stretch"
-    >
+    <Grid container className={classes.mainContainer} alignItems="stretch">
       {posts.map((post) => (
-        <Grid key={post._id} item xs={12} sm={12} lg={4}>
+        <Grid key={post._id} item xs={12} sm={12} lg={4} className={classes.post}>
           <Post post={post} setCurrentId={setCurrentId} />
         </Grid>
       ))}
