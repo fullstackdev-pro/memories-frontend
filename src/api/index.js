@@ -3,7 +3,7 @@ import axios from "axios";
 const API = axios.create({ baseURL: "https://memories-backend-rn8c.onrender.com" });
 // const API = axios.create({ baseURL: "http://localhost:5000" });
 
-let token = window.localStorage.getItem("token");
+let token = window.localStorage.getItem("memories_token");
 
 API.interceptors.request.use((req) => {
   if (token) {

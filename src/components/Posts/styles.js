@@ -45,7 +45,7 @@ export default makeStyles((theme) => ({
   },
   post: {
     margin: '10px auto',
-    height: '27rem'
+    height: '28rem'
   },
   [theme.breakpoints.down('sm')]: {
     appBar: {

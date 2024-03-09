@@ -23,6 +23,17 @@ export default makeStyles({
     height: '100%',
     position: 'relative',
     top: '20px',
+      marginRight: '20px'
+  },
+  cardMobile: {
+
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    borderRadius: '15px',
+    height: '100%',
+    position: 'relative',
+    top: '20px',
   },
   overlay: {
     position: 'absolute',
@@ -48,8 +59,9 @@ export default makeStyles({
     padding: '0 16px',
   },
   cardContent: {
-    height: '100%',
-    overflow: 'auto'
+    height: '7rem',
+    overflow: 'auto',
+    padding: '0 16px'
   },
   cardActions: {
     padding: '0 8px 8px 16px',

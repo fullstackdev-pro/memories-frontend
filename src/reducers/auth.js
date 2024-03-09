@@ -1,13 +1,15 @@
 export default (state = { authData: null }, action) => {
   switch (action.type) {
     case "AUTH":
-      localStorage.clear("profile");
-      localStorage.setItem("profile", action.payload.profile);
-      localStorage.setItem("token", action.payload.token);
+      localStorage.clear("memories_profile");
+      localStorage.clear("memories_token");
+      localStorage.setItem("memories_profile", action.payload.profile);
+      localStorage.setItem("memories_token", action.payload.token);
 
       return { ...state, authData: action.payload };
     case "LOGOUT":
-      localStorage.clear("profile");
+      localStorage.clear("memories_profile");
+      localStorage.clear("memories_token");
 
       return { ...state, authData: null };
     default:

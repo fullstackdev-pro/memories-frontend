@@ -16,7 +16,6 @@ import CommentSection from "./CommentSection";
 function PostDetails(props) {
   const classes = useStyles();
   const { post, posts, isLoading } = useSelector((state) => state.posts);
-  console.log(posts)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
@@ -53,7 +52,7 @@ function PostDetails(props) {
     <Paper style={{ padding: "20px", borderRadius: "15px" }} elevation={6}>
       <div className={classes.card}>
         <div className={classes.section}>
-          <Typography variant="h3" component="h2">
+          <Typography variant="h4" component="h2">
             {post.title}
           </Typography>
           <Typography
@@ -76,7 +75,7 @@ function PostDetails(props) {
             <strong>Realtime Chat - coming soon!</strong>
           </Typography>
           <Divider style={{ margin: "20px 0" }} />
-          <CommentSection post={post}/>
+          <CommentSection post={post} />
           <Divider style={{ margin: "20px 0" }} />
         </div>
         <div className={classes.imageSection}>

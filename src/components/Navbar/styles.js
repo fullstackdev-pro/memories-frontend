@@ -28,16 +28,16 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     width: '80%',
-    marginTop: "1rem"
+    marginTop: "1rem",
   },
   toolbarContainer:{
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'flex-end'
   },
   profile: {
     display: 'flex',
     justifyContent: 'space-between',
-    width: '400px',
+    width: '360px',
   },
   userName: {
     display: 'flex',

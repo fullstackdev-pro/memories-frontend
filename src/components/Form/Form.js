@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import useStyles from "./styles";
 import { createPost, updatePost } from "../../actions/posts";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function Form({ currentId, setCurrentId }) {
   const [postData, setPostData] = useState({
@@ -19,8 +19,8 @@ function Form({ currentId, setCurrentId }) {
   );
   const classes = useStyles();
   const dispatch = useDispatch();
-  const user = JSON.parse(localStorage.getItem("profile"));
-  const navigate = useNavigate()
+  const user = JSON.parse(localStorage.getItem("memories_profile"));
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (post) setPostData(post);
@@ -38,9 +38,9 @@ function Form({ currentId, setCurrentId }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (currentId === 0) {
-      dispatch(createPost({ ...postData, name: user?.name }, navigate));     
+    // eslint-disable-next-line
+    if (currentId == 0) {
+      dispatch(createPost({ ...postData, name: user?.name }, navigate));
       clear();
     } else {
       dispatch(updatePost(currentId, postData));

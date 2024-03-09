@@ -12,8 +12,10 @@ function Navbar() {
   const navigate = useNavigate();
   const classes = useStyles();
   const location = useLocation();
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
-
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("memories_profile")));
+  // eslint-disable-next-line
+  const [token, setToken] = useState(localStorage.getItem("memories_token"));
+  
   const logout = () => {
     dispatch({ type: "LOGOUT" });
 
@@ -23,14 +25,13 @@ function Navbar() {
   };
 
   useEffect(() => {
-    const token = user?.token;
     if (token) {
       const decodedToken = decode(token);
 
       if (decodedToken.exp * 1000 < new Date().getTime()) logout();
     }
 
-    setUser(JSON.parse(localStorage.getItem("profile")));
+    setUser(JSON.parse(localStorage.getItem("memories_profile")));
     // eslint-disable-next-line
   }, [location]);
 

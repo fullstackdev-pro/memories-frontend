@@ -21,7 +21,7 @@ import { deletePost, likePost } from "../../../actions/posts";
 function Post({ post, setCurrentId }) {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const user = JSON.parse(localStorage.getItem("profile"));
+  const user = JSON.parse(localStorage.getItem("memories_profile"));
   const navigate = useNavigate();
   const openPost = () => navigate(`/posts/${post._id}`);
   const [likes, setLikes] = useState(post?.like);
@@ -37,73 +37,77 @@ function Post({ post, setCurrentId }) {
       setLikes([...post.like, user?._id]);
     }
   };
-
+  console.log();
   return (
-    <Card className={classes.card} raised elevation={6}>
-        <ButtonBase className={classes.cardAction}>
-          <CardMedia
-            className={classes.media}
-            image={post.selectedFile}
-            title={post.title}
-          />
-          <div className={classes.overlay}>
-            <Typography variant="h6">{post.name}</Typography>
-            <Typography variant="body2">
-              {moment(post.createdAt).fromNow()}
-            </Typography>
-          </div>
-          <div className={classes.overlay2}>
-            <Button
-              style={{ color: "white" }}
-              size="small"
-              // onClick={() => setCurrentId(post._id)}
-            >
-              <MoreHorizIcon fontSize="medium" />
-            </Button>
-          </div>
-          <div className={classes.details}>
-            <Typography variant="body2" color="textSecondary">
-              {post.tags.map((tag) => `#${tag} `)}
-            </Typography>
-          </div>
-          <Typography
-            className={classes.title}
-            variant="h5"
-            gutterBottom
-            onClick={openPost}
-          >
-            {post.title}
+    <Card
+      className={window.innerWidth >= 1280 ? classes.card : classes.cardMobile}
+      raised
+      elevation={6}
+    >
+      <ButtonBase className={classes.cardAction}>
+        <CardMedia
+          className={classes.media}
+          image={post.selectedFile}
+          title={post.title}
+        />
+        <div className={classes.overlay}>
+          <Typography variant="h6">{post.name}</Typography>
+          <Typography variant="body2">
+            {moment(post.createdAt).fromNow()}
           </Typography>
-          <CardContent>
-            <Typography
-              variant="body2"
-              color="textSecondary"
-              component="p"
-              gutterBottom
-              className={classes.cardContent}
-            >
-              {post.message}
-            </Typography>
-          </CardContent>
-        </ButtonBase>
-        <CardActions className={classes.cardActions}>
-          <Button size="small" color="primary" onClick={handleClick}>
-            <ThumbUpAltIcon fontSize="small" />
-            Like &nbsp;
-            {likes.length}
+        </div>
+        <div className={classes.overlay2}>
+          <Button
+            style={{ color: "white" }}
+            size="small"
+            // onClick={() => setCurrentId(post._id)}
+          >
+            <MoreHorizIcon fontSize="medium" />
           </Button>
-          {user?._id === post?.creator && (
-            <Button
-              size="small"
-              color="primary"
-              onClick={() => dispatch(deletePost(post._id))}
-            >
-              <DeleteIcon fontSize="small" />
-              Delete
-            </Button>
-          )}
-        </CardActions>
-      </Card>
+        </div>
+        <div className={classes.details}>
+          <Typography variant="body2" color="textSecondary">
+            {post.tags.map((tag) => `#${tag} `)}
+          </Typography>
+        </div>
+        <Typography
+          className={classes.title}
+          variant="h5"
+          gutterBottom
+          onClick={openPost}
+        >
+          {post.title}
+        </Typography>
+        <CardContent className={classes.cardContent}>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            component="p"
+            gutterBottom
+            className={classes.cardContentTitle}
+          >
+            {post.message}
+          </Typography>
+        </CardContent>
+      </ButtonBase>
+      <CardActions className={classes.cardActions}>
+        <Button size="small" color="primary" onClick={handleClick}>
+          <ThumbUpAltIcon fontSize="small" />
+          Like &nbsp;
+          {likes.length}
+        </Button>
+        {user?._id === post?.creator && (
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => dispatch(deletePost(post._id))}
+          >
+            <DeleteIcon fontSize="small" />
+            Delete
+          </Button>
+        )}
+      </CardActions>
+    </Card>
   );
 }
 
